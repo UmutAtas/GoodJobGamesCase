@@ -18,8 +18,10 @@ public class CameraController : MonoBehaviour
     {
         Vector3 tempPos = new Vector3(x / 2, y / 2, cameraOffset);
         transform.position = tempPos;
-        if(_gridManager.width > _gridManager.height)
-            Camera.main.orthographicSize = ((float)_gridManager.width / 2 + padding) / aspectRatio + 1;  
+        if (_gridManager.width > _gridManager.height)
+            Camera.main.orthographicSize = ((float)_gridManager.width / 2 + padding) / aspectRatio;  
+        else if (_gridManager.width == _gridManager.height)
+            Camera.main.orthographicSize = (float) _gridManager.height / 2 + padding + 2;
         else
             Camera.main.orthographicSize = (float)_gridManager.height / 2 + padding;  
     }
